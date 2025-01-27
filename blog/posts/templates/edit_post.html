@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% block title %}
-    Редагування
+    Редагування посту
 {% endblock %}
 {% block content %}
-<div>
-  <h1>Редагувати пост: {{ post.title }}</h1>
+<div class="container custom-container">
+  <h1 class="form-title">Редагувати пост: {{ post.title }}</h1>
   <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
@@ -12,5 +12,6 @@
   </form>
   <a href="{% url 'posts:list' %}" class="btn btn-secondary">Назад до посту</a>
 </div>
-
 {% endblock %}
+
+
