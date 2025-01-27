@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block title%}
+{%load static%}
 Новини
 {% endblock%}
 {% block content%}
@@ -36,4 +37,5 @@
 {%endfor%}
 </div>
 </div>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock%}

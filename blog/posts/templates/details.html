@@ -1,13 +1,18 @@
 {% extends "layout.html" %}
 {% block title %}
-    Детальніше
+    {{ post.title }}
 {% endblock %}
 {% block content %}
-<div>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.content }}</p>
-    <p><strong>Автор:</strong> {{ post.created_by.first_name }} {{ post.created_by.last_name }}</p>
-    <p><small>Створено: {{ post.created_at }}</small></p>
-    <a href="{% url "posts:list" %}">Назад</a>
+<div class="news-container">
+    <div class="news-card">
+        <h1 class="news-title">{{ post.title }}</h1>
+        {% if post.image %}
+        {% endif %}
+        <p class="news-content">{{ post.body }}</p>
+        <p><img src="/media/{{ post.img }}" alt="{{ post.title }}" class="news-image"></p>
+        <p class="news-author"><strong>Автор:</strong> {{ post.created_by.first_name }} {{ post.created_by.last_name }}</p>
+        <p class="news-date"><small>Створено: {{ post.created_at|date:"d.m.Y H:i" }}</small></p>
+        <a href="{% url 'posts:list' %}" class="back-link">Назад</a>
+    </div>
 </div>
 {% endblock %}
